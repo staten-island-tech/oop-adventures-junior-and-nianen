@@ -1,8 +1,9 @@
+import json
 import random
 
-import fire_abilities
-import water_abilities
-
+fire_abilities = open("fire_abilities.json", encoding="utf8")
+water_abilities = open("water_abilities.json", encoding="utf8")
+data = json.load(fire_abilities)
 name = input("What is your name?")
 class User:
     def __init__ (self, id, name, health, max_health):
@@ -56,11 +57,12 @@ if ability.upper() == "WATER":
         
 if ability.upper() == "FIRE":
     firemove = input("Choose a fire move" )
-    if firemove == fire_abilities["name"]:
-        if random > 0:
-            print("Your move was effective")
-        elif random == 0:
-            print("Your move was ineffective")
+    for abilities in data:
+        if firemove in abilities["name"]:
+            if random > 0:
+                print("Your move was effective")
+            elif random == 0:
+                    print("Your move was ineffective")
     
         
 
