@@ -1,4 +1,3 @@
-import json
-water = open("./water_abilities.json", encoding="utf8")
-data = json.load(water)
-print (water[1]["name"])
+with open('water_abilities.json') as water_abilities_file:
+    file_contents = water_abilities_file.read()
+print (file_contents[10])
