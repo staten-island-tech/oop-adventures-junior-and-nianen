@@ -1,12 +1,12 @@
 import json
 import random
-with open('water_abilities.json') as water_abilities_file:
-    data = water_abilities_file.read()
 
+waterability = open("water_abilities.json", encoding="utf8")
+data = json.load(waterability)
 
-fire_abilities = open("fire_abilities.json", encoding="utf8")
-water_abilities = open("water_abilities.json", encoding="utf8")
-data = json.load(fire_abilities)
+fireability = open("fire_abilities.json", encoding="utf8")
+data1 = json.load(fireability)
+
 name = input("What is your name?")
 class User:
     def __init__ (self, id, name, health, max_health):
@@ -19,13 +19,13 @@ class Fire:
     def __init__(self, id, name, moves, health, max_health):
         super().__init__(id, name, health, max_health)
         self.moves = moves
-        moves = water_abilities["name"]
+        moves = data1["name"]
 
 class Water:
     def __init__(self, id, name, moves, health, max_health):
         super().__init__(id,name, health, max_health)
         self.moves = moves
-        moves = fire_abilities["name"]
+        moves = data["name"]
        
 class Enemy: 
     def __init__(self, id, name, health, max_health):
@@ -50,18 +50,23 @@ ability = input("What ability do you want? WATER/FIRE")
 
 
 if ability.upper() == "WATER":
+    for abilities in data:
+        print(abilities["name"]["english"])
     watermove = input("Choose a water move" )
-    if watermove == water_abilities["name"]:
-        if random > 0:
-            print("Your move was effective")
-        elif random == 0:
-            print("Your move was ineffective")
+    for abilities in data:
+        if watermove in abilities["name"]["english"]:
+            if random > 0:
+                print("Your move was effective")
+            elif random == 0:
+                print("Your move was ineffective")
 
         
 if ability.upper() == "FIRE":
+    for abilities in data1:
+        print(abilities["name"]["english"])
     firemove = input("Choose a fire move" )
-    for abilities in data:
-        if firemove in abilities["name"]:
+    for abilities in data1:
+        if firemove in abilities["name"]["english"]:
             if random > 0:
                 print("Your move was effective")
             elif random == 0:
