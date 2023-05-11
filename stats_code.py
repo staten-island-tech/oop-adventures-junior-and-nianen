@@ -1,10 +1,13 @@
 import random
 random_boss = random.randint(300,500)
+boss_health = []
 damage_dealt_list = []
 damage_taken_list = []
 
 total_damage_taken = sum(damage_taken_list)
 total_damage_dealt = sum(damage_dealt_list)
+
+
 
 def stats_print():
     print(f'Damage taken was'[total_damage_dealt])
@@ -26,7 +29,10 @@ class Boss:
             self.max_health = max_health
 
         def __repr__(self): 
-            return "Test max_health:% s health:% s" % (self.max_health, self.health) 
+            return "max_health:% s and the health:% s" % (self.max_health, self.health) 
+    
+    
+Health_of_Boss = Boss(random_boss,random_boss,random_boss,random_boss)
 
-        boss_health = Boss
+print(Health_of_Boss)
         
