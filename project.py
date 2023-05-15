@@ -11,9 +11,9 @@ normal_enemy_health = 100
 normal_enemy_max_health = 100
 boss_health = []
 damage_dealt_list = []
-damage_taken_list = []
 
-total_damage_taken = sum(damage_taken_list)
+
+
 total_damage_dealt = sum(damage_dealt_list)
 
 class User:
@@ -34,18 +34,21 @@ class Water(User):
         self.moves = moves
 
 class Enemy: 
-    def __init__(self, id, name, health, max_health):
+    def __init__(self, id, name, health, max_health, damage):
         self.health = health
         self.id = id
         self.name = name
         self.max_health = max_health
+        self.damage = damage
+
 
 class Boss:
-    def __init__(self, id, name, health, max_health):
+    def __init__(self, id, name, health, max_health, damage):
         self.health = health
         self.id = id
         self.name = name
         self.max_health = max_health
+        self.damage = damage
 
     def __repr__(self): 
         return "max_health:% s and the health:% s" % (self.max_health, self.health) 
@@ -59,13 +62,11 @@ def deal_damage(attacker, enemy, move):
         return True
     return False
 
-def stats_print():
-    print(f"Total damage taken: {total_damage_dealt}")
-    print(f"Total damage dealt: {total_damage_taken}")
+
 
 def normal_enemy_fight(player):
-    enemy = Enemy(0, "Normal Enemy", normal_enemy_health, normal_enemy_max_health)
-    print(f"You have encountered a {enemy.name} with {enemy.health} health!")
+    enemy = Enemy(0, "Normal Enemy", normal_enemy_health, normal_enemy_max_health, 50)
+    print(f"You have encountered a normal enemy with {enemy.health} health")
     while enemy.health > 0:
         if isinstance(player, Water):
             watermove = input("Choose a water move (Ice Breath): ")
@@ -73,10 +74,8 @@ def normal_enemy_fight(player):
                 if watermove == abilities["name"]["english"]:
                     defeated = deal_damage(player, enemy, abilities)
                     if defeated:
-                        print(f"You have defeated the {enemy.name}!")
-                        damage_dealt_list.append(player.health)
-                        damage_taken_list.append(enemy.health)
-                        stats_print()
+                        print(f"You have defeated the normal enemy")
+                        
                         return True
                     break
         elif isinstance(player, Fire):
@@ -85,17 +84,15 @@ def normal_enemy_fight(player):
                 if firemove == abilities["name"]["english"]:
                     defeated = deal_damage(player, enemy, abilities)
                     if defeated:
-                        print(f"You have defeated the {enemy.name}!")
-                        damage_dealt_list.append(player.health)
-                        damage_taken_list.append(enemy.health)
-                        stats_print()
+                        print(f"You have defeated the normal enemy")
+    
                         return True
                     break
 
 def boss_fight(player):
     random_boss = random.randint(300, 500)
-    boss = Boss(1, "Boss", random_boss, random_boss)
-    print(f"You have encountered a {boss.name} with {boss.health} health!")
+    boss = Boss(1, "Boss", random_boss, random_boss, 50)
+    print(f"You have encountered a boss with {boss.health} health")
     while boss.health > 0:
         if isinstance(player, Water):
             watermove = input("Choose a water move (Ice Breath): ")
@@ -103,10 +100,7 @@ def boss_fight(player):
                 if watermove == abilities["name"]["english"]:
                     defeated = deal_damage(player, boss, abilities)
                     if defeated:
-                        print(f"You have defeated the {boss.name}!")
-                        damage_dealt_list.append(player.health)
-                        damage_taken_list.append(boss.health)
-                        stats_print()
+                        print(f"You have defeated the boss")
                         return True
                     break
         elif isinstance(player, Fire):
@@ -115,10 +109,7 @@ def boss_fight(player):
                 if firemove == abilities["name"]["english"]:
                     defeated = deal_damage(player, boss, abilities)
                     if defeated:
-                        print(f"You have defeated the {boss.name}!")
-                        damage_dealt_list.append(player.health)
-                        damage_taken_list.append(boss.health)
-                        stats_print()
+                        print(f"You have defeated the boss")
                         return True
                     break
 
