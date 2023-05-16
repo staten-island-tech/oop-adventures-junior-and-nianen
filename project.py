@@ -53,7 +53,7 @@ class Boss:
     def __repr__(self): 
         return "max_health:% s and the health:% s" % (self.max_health, self.health) 
 
-def deal_damage(enemy, move):
+def deal_damage(player, enemy, move):
     damage = move["base"]["Attack"]
     enemy.health -= damage
     print(f"{enemy.name} took {damage} damage")
@@ -61,7 +61,7 @@ def deal_damage(enemy, move):
         print(f"{enemy.name} has been defeated")
         return True
     return False
-def take_damage(player, enemy):
+def take_damage(player, enemy, move):
     damage = enemy.damage
     player.health -= damage
     print(f"{player.name} took {damage} damage")
@@ -76,23 +76,39 @@ def normal_enemy_fight(player):
     print(f"You have encountered a normal enemy with {enemy.health} health")
     while enemy.health > 0:
         if isinstance(player, Water):
-            watermove = input("Choose a water move (Ice Breath): ")
-            for abilities in water_abilities:
-                if watermove == abilities["name"]["english"]:
-                    defeated = deal_damage(player, enemy, abilities)
-                    if defeated:
-                        print(f"You have defeated the normal enemy")
+            attackordefend = input("Do you want to defend or attack")
+            if attackordefend == "DEFEND".upper ():
+                print("You defended against the enemy")
+            elif attackordefend == "ATTACK".upper():
+                watermove = input("Choose a water move (Ice Breath): ")
+                for abilities in water_abilities:
+                    if watermove == abilities["name"]["english"]:
+                        defeated = deal_damage(player, enemy, abilities)
+                        if defeated:
+                            print(f"You have defeated the normal enemy")
+                        lost = take_damage(player, enemy, abilities)
+                        if lost:
+                            print("You lost")
+
+           
+                
             
                         
-                        return True
-                    break
+                        
         elif isinstance(player, Fire):
-            firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
-            for abilities in fire_abilities:
-                if firemove == abilities["name"]["english"]:
-                    defeated = deal_damage(player, enemy, abilities)
-                    if defeated:
-                        print(f"You have defeated the normal enemy")
+            attackordefend = input("Do you want to defend or attack")
+            if attackordefend == "DEFEND".upper ():
+                print("You defended against the enemy")
+            elif attackordefend == "ATTACK".upper():
+                firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
+                for abilities in fire_abilities:
+                    if firemove == abilities["name"]["english"]:
+                        defeated = deal_damage(player, enemy, abilities)
+                        if defeated:
+                            print(f"You have defeated the normal enemy")
+                        lost = take_damage(player, enemy, abilities)
+                        if lost:
+                            print("You lost")
     
                         return True
                     break
@@ -103,21 +119,35 @@ def boss_fight(player):
     print(f"You have encountered a boss with {boss.health} health")
     while boss.health > 0:
         if isinstance(player, Water):
-            watermove = input("Choose a water move (Ice Breath): ")
-            for abilities in water_abilities:
-                if watermove == abilities["name"]["english"]:
-                    defeated = deal_damage(player, boss, abilities)
-                    if defeated:
-                        print(f"You have defeated the boss")
+            attackordefend = input("Do you want to defend or attack")
+            if attackordefend == "DEFEND".upper ():
+                print("You defended against the enemy")
+            elif attackordefend == "ATTACK".upper():
+                watermove = input("Choose a water move (Ice Breath): ")
+                for abilities in water_abilities:
+                    if watermove == abilities["name"]["english"]:
+                        defeated = deal_damage(player, boss, abilities)
+                        if defeated:
+                            print(f"You have defeated the boss")
+                        lost = take_damage(player, boss, abilities)
+                        if lost:
+                            print("You lost")
                         return True
                     break
         elif isinstance(player, Fire):
-            firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
-            for abilities in fire_abilities:
-                if firemove == abilities["name"]["english"]:
-                    defeated = deal_damage(player, boss, abilities)
-                    if defeated:
-                        print(f"You have defeated the boss")
+            attackordefend = input("Do you want to defend or attack")
+            if attackordefend == "DEFEND".upper ():
+                print("You defended against the enemy")
+            elif attackordefend == "ATTACK".upper():
+                firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
+                for abilities in fire_abilities:
+                    if firemove == abilities["name"]["english"]:
+                        defeated = deal_damage(player, boss, abilities)
+                        if defeated:
+                            print(f"You have defeated the boss")
+                        lost = take_damage(player, boss, abilities)
+                        if lost:
+                            print("You lost")
                         return True
                     break
 
@@ -148,7 +178,7 @@ def __repr__(self):
     return "max_health:% s and the health:% s" % (self.max_health, self.health) 
     
     
-Health_of_Boss = Boss(random_boss,random_boss,random_boss,random_boss)
 
-print(Health_of_Boss)
+
+
         
