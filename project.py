@@ -53,7 +53,7 @@ class Boss:
     def __repr__(self): 
         return "max_health:% s and the health:% s" % (self.max_health, self.health) 
 
-def deal_damage(attacker, enemy, move):
+def deal_damage(enemy, move):
     damage = move["base"]["Attack"]
     enemy.health -= damage
     print(f"{enemy.name} took {damage} damage")
@@ -61,7 +61,14 @@ def deal_damage(attacker, enemy, move):
         print(f"{enemy.name} has been defeated")
         return True
     return False
-
+def take_damage(player, enemy):
+    damage = enemy.damage
+    player.health -= damage
+    print(f"{player.name} took {damage} damage")
+    if player.health <= 0:
+        print(f"{player.name} has been defeated")
+        return True
+    return False
 
 
 def normal_enemy_fight(player):
@@ -75,6 +82,7 @@ def normal_enemy_fight(player):
                     defeated = deal_damage(player, enemy, abilities)
                     if defeated:
                         print(f"You have defeated the normal enemy")
+            
                         
                         return True
                     break
@@ -134,3 +142,13 @@ while True:
             round_count += 1
         else:
             break
+
+
+def __repr__(self): 
+    return "max_health:% s and the health:% s" % (self.max_health, self.health) 
+    
+    
+Health_of_Boss = Boss(random_boss,random_boss,random_boss,random_boss)
+
+print(Health_of_Boss)
+        
