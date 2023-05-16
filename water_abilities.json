@@ -1,14 +1,38 @@
-men_1 = [{
-    "id": 1,
+[
+    {"id": 1,
+    "name": {
+        "english": "Ice Breath"
+    },
+    "type": [
+        "Freezing"
+    ],
+    "base" : {
+    "Attack": 50 
+    }
+},
+{
+    "id":2,
     "name":{
-        "english":"Ice Breath"
+        "english": "Icecle"
     },
     "type":[
         "Freezing",
-        "AOA"
+        "Slowness"
     ],
-    "base":{
-        "Attack":"Base"
+    "base": {
+    "Attack":35
     }
-}]
-print(men_1)
+}, 
+{   "id": 3,
+    "name": {
+        "english": "Tsunami"
+    },
+    "type": [
+    "Drowning",
+    "Slowness"
+    ],
+    "base" : {
+    "Attack": 35 
+    }
+}
+]
