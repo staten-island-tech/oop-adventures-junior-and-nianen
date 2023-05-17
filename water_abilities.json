@@ -34,5 +34,31 @@
     "base" : {
     "Attack": 35 
     }
+},
+{
+    "id":2,
+    "name":{
+        "english": "Icecle"
+    },
+    "type":[
+        "Freezing",
+        "Slowness"
+    ],
+    "base": {
+    "Attack":35
+    }
+},
+{
+    "id":2,
+    "name":{
+        "english": "Icecle"
+    },
+    "type":[
+        "Freezing",
+        "Slowness"
+    ],
+    "base": {
+    "Attack":35
+    }
 }
 ]
