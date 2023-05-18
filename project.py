@@ -80,7 +80,7 @@ def normal_enemy_fight(player):
             if attackordefend == "DEFEND".upper ():
                 print("You defended against the enemy")
             elif attackordefend == "ATTACK".upper():
-                watermove = input("Choose a water move (Ice Breath): ")
+                watermove = input("Choose a water move (Ice Breath, Tsunami, Icecle): ")
                 for abilities in water_abilities:
                     if watermove == abilities["name"]["english"]:
                         defeated = deal_damage(player, enemy, abilities)
@@ -135,30 +135,31 @@ def boss_fight(player):
                         return True
                     break
         elif isinstance(player, Fire):
-            attackordefend = input("Do you want to defend or attack")
-            if attackordefend == "DEFEND".upper ():
-                print("You defended against the enemy")
-            elif attackordefend == "ATTACK".upper():
-                firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
-                for abilities in fire_abilities:
-                    if firemove == abilities["name"]["english"]:
-                        defeated = deal_damage(player, boss, abilities)
-                        if defeated:
-                            print(f"You have defeated the boss")
-                        lost = take_damage(player, boss, abilities)
-                        if lost:
-                            print("You lost")
-                        return True
-                    break
+            while boss.health > 0:
+                attackordefend = input("Do you want to defend or attack")
+                if attackordefend == "DEFEND".upper ():
+                    print("You defended against the enemy")
+                elif attackordefend == "ATTACK".upper():
+                    firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
+                    for abilities in fire_abilities:
+                        if firemove == abilities["name"]["english"]:
+                            defeated = deal_damage(player, boss, abilities)
+                            if defeated:
+                                print(f"You have defeated the boss")
+                            lost = take_damage(player, boss, abilities)
+                            if lost:
+                                print("You lost")
+                            return True
+                        break
 
 name = input("What is your name?")
 
 ability = input("What ability do you want? WATER/FIRE")
 
 if ability.upper() == "WATER":
-    player = Water(0, name, [], 100, 100)
+    player = Water(0, name, [], 500, 500)
 elif ability.upper() == "FIRE":
-    player = Fire(0, name, [], 100, 100)
+    player = Fire(0, name, [], 500, 500)
 
 round_count = 1
 while True:
