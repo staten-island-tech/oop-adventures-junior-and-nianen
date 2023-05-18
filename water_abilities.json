@@ -1,13 +1,64 @@
-[{
-    "id": 1,
+[
+    {"id": 1,
+    "name": {
+        "english": "Ice Breath"
+    },
+    "type": [
+        "Freezing"
+    ],
+    "base" : {
+    "Attack": 50 
+    }
+},
+{
+    "id":2,
     "name":{
-        "english":"Ice Breath"
+        "english": "Icecle"
     },
     "type":[
         "Freezing",
-        "AOA"
+        "Slowness"
     ],
-    "base":{
-        "Attack": 40
+    "base": {
+    "Attack":35
     }
-}]
+}, 
+{   "id": 3,
+    "name": {
+        "english": "Tsunami"
+    },
+    "type": [
+    "Drowning",
+    "Slowness"
+    ],
+    "base" : {
+    "Attack": 35 
+    }
+},
+{
+    "id":2,
+    "name":{
+        "english": "Icecle"
+    },
+    "type":[
+        "Freezing",
+        "Slowness"
+    ],
+    "base": {
+    "Attack":35
+    }
+},
+{
+    "id":2,
+    "name":{
+        "english": "Icecle"
+    },
+    "type":[
+        "Freezing",
+        "Slowness"
+    ],
+    "base": {
+    "Attack":35
+    }
+}
+]
