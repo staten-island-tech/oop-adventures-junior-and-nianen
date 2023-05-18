@@ -13,14 +13,14 @@
 {
     "id":2,
     "name":{
-        "english": "Icecle"
+        "english": "Icecle Snipe"
     },
     "type":[
-        "Freezing",
+        "Deadly",
         "Slowness"
     ],
     "base": {
-    "Attack":35
+    "Attack":60
     }
 }, 
 {   "id": 3,
@@ -36,7 +36,7 @@
     }
 },
 {
-    "id":2,
+    "id":4,
     "name":{
         "english": "Icecle"
     },
@@ -45,20 +45,46 @@
         "Slowness"
     ],
     "base": {
-    "Attack":35
+    "Attack":50
     }
 },
 {
-    "id":2,
+    "id":5,
     "name":{
         "english": "Icecle"
     },
     "type":[
-        "Freezing",
-        "Slowness"
+        "One Hit"
     ],
     "base": {
-    "Attack":35
+    "Attack":200
+    }
+},
+{
+    "id":6,
+    "name":{
+        "english": "Water Blaze"
+    },
+    "type":[
+        "Drowning",
+        "Freezing"
+    ],
+    "base": {
+    "Attack":70
+    }
+},
+{
+    "id":7,
+    "name":{
+        "english": "Hail Storm"
+    },
+    "type":[
+        "Deadly",
+        "Freezing"
+    ],
+    "base": {
+    "Attack":45
     }
 }
+]
 ]
