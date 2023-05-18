@@ -102,7 +102,7 @@ def normal_enemy_fight(player):
             if attackordefend == "DEFEND".upper ():
                 print("You defended against the enemy")
             elif attackordefend == "ATTACK".upper():
-                firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
+                firemove = input("Choose a fire move (Fire Fist, Fire Ball, Lava cannon, Lava Rise, Magma Shot, Fire Blaze, Fire Phoneix, Fire Breath): ")
                 for abilities in fire_abilities:
                     if firemove == abilities["name"]["english"]:
                         defeated = deal_damage(player, enemy, abilities)
