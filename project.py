@@ -9,12 +9,11 @@ with open("fire_abilities.json", encoding="utf8") as fire_ability_file:
 
 normal_enemy_health = 100
 normal_enemy_max_health = 100
-boss_health = []
-damage_dealt_list = []
+damage_dealt = []
 
 
 
-total_damage_dealt = sum(damage_dealt_list)
+total_damage_dealt = sum(damage_dealt)
 
 class User:
     def __init__(self, id, name, health, max_health):
@@ -59,6 +58,7 @@ def deal_damage(player, enemy, move):
     print(f"{enemy.name} took {damage} damage")
     if enemy.health <= 0:
         print(f"{enemy.name} has been defeated")
+        damage_dealt.append(damage)
         return True
     return False
 def take_damage(player, enemy, move):
@@ -85,10 +85,12 @@ def normal_enemy_fight(player):
                     if watermove == abilities["name"]["english"]:
                         defeated = deal_damage(player, enemy, abilities)
                         if defeated:
-                            print(f"You have defeated the normal enemy")
+                            print("You have defeated the normal enemy")
                         lost = take_damage(player, enemy, abilities)
                         if lost:
                             print("You lost")
+                          
+
 
            
                 
@@ -105,10 +107,11 @@ def normal_enemy_fight(player):
                     if firemove == abilities["name"]["english"]:
                         defeated = deal_damage(player, enemy, abilities)
                         if defeated:
-                            print(f"You have defeated the normal enemy")
+                            print("You have defeated the normal enemy")
                         lost = take_damage(player, enemy, abilities)
                         if lost:
                             print("You lost")
+                            
     
                         return True
                     break
@@ -128,7 +131,7 @@ def boss_fight(player):
                     if watermove == abilities["name"]["english"]:
                         defeated = deal_damage(player, boss, abilities)
                         if defeated:
-                            print(f"You have defeated the boss")
+                            print("You have defeated the boss")
                         lost = take_damage(player, boss, abilities)
                         if lost:
                             print("You lost")
@@ -145,7 +148,7 @@ def boss_fight(player):
                         if firemove == abilities["name"]["english"]:
                             defeated = deal_damage(player, boss, abilities)
                             if defeated:
-                                print(f"You have defeated the boss")
+                                print("You have defeated the boss")
                             lost = take_damage(player, boss, abilities)
                             if lost:
                                 print("You lost")
