@@ -1,30 +1,109 @@
 [
-            {"id": 1,
-            "name": {
-                "english": "Fire Fist"
-            }
-            "type": [
-                "Burning",
-                "Bleeding"
-            ],
-            "base" : {
-            "Attack": 50 
-            },
-        },
-        {
-            "id":2,
-            "name":{
-                "english": "Fire Blast"
-            },
-            "type":[
-                "Burning"
-            ],
-            "base": {
-            "Attack":40
-            }
-        } 
+    {"id": 1,
+    "name": {
+        "english": "Fire Fist"
+    },
+    "type": [
+        "Burning",
+        "Bleeding"
+    ],
+    "base" : {
+    "Attack": 50 
+    }
+},
+{
+    "id":2,
+    "name":{
+        "english": "Fire Blast"
+    },
+    "type":[
+        "Burning"
+    ],
+    "base": {
+    "Attack":40
+    }
+}, 
+{   "id": 3,
+    "name": {
+        "english": "Fire Breath"
+    },
+    "type": [
+    "Melting",
+    "Bleeding"
+    ],
+    "base" : {
+    "Attack": 35 
+    }
+},
+{
+    "id":4,
+    "name":{
+        "english": "Fire Phoneix"
+    },
+    "type":[
+        "Burning",
+        "Air"
+    ],
+    "base": {
+    "Attack":20
+    }
+},
+{
+    "id":5,
+    "name":{
+        "english": "Fire Blaze"
+    },
+    "type":[
+        "Burning",
+        "Bleeding"
+    ],
+    "base": {
+    "Attack":50
+    }
+},
+{
+    "id":6,
+    "name":{
+        "english": "Magma Shot"
+    },
+    "type":[
+        "Melting",
+        "Deadly",
+        "Air"
+    ],
+    "base": {
+    "Attack":60
+    }
+},
+{
+    "id":6,
+    "name":{
+        "english": "Lava Rise"
+    },
+    "type":[
+        "Melting",
+        "Deadly",
+        "One Hit Attack"
+    ],
+    "base": {
+    "Attack":200
+    }
+},
+{
+    "id":7,
+    "name":{
+        "english": "Lava cannon"
+    },
+    "type":[
+        "Melting",
+        "Deadly",
+        "One Hit Attack"
+    ],
+    "base": {
+    "Attack":200
+    }
+}
 ]
-
 
 
 
