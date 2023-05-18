@@ -114,7 +114,7 @@ def normal_enemy_fight(player):
                     break
 
 def boss_fight(player):
-    random_boss = random.randint(300, 500)
+    random_boss = random.randint(500, 1000)
     boss = Boss(1, "Boss", random_boss, random_boss, 50)
     print(f"You have encountered a boss with {boss.health} health")
     while boss.health > 0:
