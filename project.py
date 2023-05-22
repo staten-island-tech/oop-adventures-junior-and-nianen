@@ -72,7 +72,7 @@ def take_damage(player, enemy, move):
 
 
 def normal_enemy_fight(player):
-    enemy = Enemy(0, "Normal Enemy", normal_enemy_health, normal_enemy_max_health, 50)
+    enemy = Enemy(0, "Normal Enemy", normal_enemy_health, normal_enemy_max_health, random.randint(10, 100))
     print(f"You have encountered a normal enemy with {enemy.health} health")
     while enemy.health > 0:
         if isinstance(player, Water):
@@ -119,7 +119,7 @@ def normal_enemy_fight(player):
 
 def boss_fight(player):
     random_boss = random.randint(500, 1000)
-    boss = Boss(1, "Boss", random_boss, random_boss, 50)
+    boss = Boss(1, "Boss", random_boss, random_boss, random.randint(50, 200))
     print(f"You have encountered a boss with {boss.health} health")
     while boss.health > 0:
         if isinstance(player, Water):
