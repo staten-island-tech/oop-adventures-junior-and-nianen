@@ -90,7 +90,8 @@ def normal_enemy_fight(player):
                         if lost:
                             print("You lost")
                           
-
+                        return True
+                    break
 
            
                 
