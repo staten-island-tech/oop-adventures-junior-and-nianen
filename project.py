@@ -1,6 +1,8 @@
 import json
 import random
 
+from classes import Boss, Enemy, Fire, User, Water
+
 with open("water_abilities.json", encoding="utf8") as water_ability_file:
     water_abilities = json.load(water_ability_file)
 
@@ -15,42 +17,10 @@ damage_dealt = []
 
 total_damage_dealt = sum(damage_dealt)
 
-class User:
-    def __init__(self, id, name, health, max_health):
-        self.id = id
-        self.name = name
-        self.health = health
-        self.max_health = max_health
-
-class Fire(User):
-    def __init__(self, id, name, moves, health, max_health):
-        super().__init__(id, name, health, max_health)
-        self.moves = moves
-
-class Water(User):
-    def __init__(self, id, name, moves, health, max_health):
-        super().__init__(id, name, health, max_health)
-        self.moves = moves
-
-class Enemy: 
-    def __init__(self, id, name, health, max_health, damage):
-        self.health = health
-        self.id = id
-        self.name = name
-        self.max_health = max_health
-        self.damage = damage
 
 
-class Boss:
-    def __init__(self, id, name, health, max_health, damage):
-        self.health = health
-        self.id = id
-        self.name = name
-        self.max_health = max_health
-        self.damage = damage
-
-    def __repr__(self): 
-        return "max_health:% s and the health:% s" % (self.max_health, self.health) 
+def __repr__(self): 
+    return "max_health:% s and the health:% s" % (self.max_health, self.health) 
 
 def deal_damage(player, enemy, move):
     damage = move["base"]["Attack"]
