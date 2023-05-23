@@ -19,9 +19,6 @@ total_damage_dealt = sum(damage_dealt)
 
 
 
-def __repr__(self): 
-    return "max_health:% s and the health:% s" % (self.max_health, self.health) 
-
 def deal_damage(player, enemy, move):
     damage = move["base"]["Attack"]
     enemy.health -= damage
@@ -47,9 +44,9 @@ def normal_enemy_fight(player):
     while enemy.health > 0:
         if isinstance(player, Water):
             attackordefend = input("Do you want to defend or attack")
-            if attackordefend == "DEFEND".upper ():
+            if attackordefend.upper() == "DEFEND":
                 print("You defended against the enemy")
-            elif attackordefend == "ATTACK".upper():
+            elif attackordefend.upper() == "ATTACK":
                 watermove = input("Choose a water move (Ice Breath, Tsunami, Icecle): ")
                 for abilities in water_abilities:
                     if watermove == abilities["name"]["english"]:
@@ -70,9 +67,9 @@ def normal_enemy_fight(player):
                         
         elif isinstance(player, Fire):
             attackordefend = input("Do you want to defend or attack")
-            if attackordefend == "DEFEND".upper ():
+            if attackordefend.upper() == "DEFEND":
                 print("You defended against the enemy")
-            elif attackordefend == "ATTACK".upper():
+            elif attackordefend.upper() == "ATTACK":
                 firemove = input("Choose a fire move (Fire Fist, Fire Ball, Lava cannon, Lava Rise, Magma Shot, Fire Blaze, Fire Phoneix, Fire Breath): ")
                 for abilities in fire_abilities:
                     if firemove == abilities["name"]["english"]:
@@ -94,9 +91,9 @@ def boss_fight(player):
     while boss.health > 0:
         if isinstance(player, Water):
             attackordefend = input("Do you want to defend or attack")
-            if attackordefend == "DEFEND".upper ():
+            if attackordefend.upper() == "DEFEND":
                 print("You defended against the enemy")
-            elif attackordefend == "ATTACK".upper():
+            elif attackordefend.upper() == "ATTACK":
                 watermove = input("Choose a water move (Ice Breath): ")
                 for abilities in water_abilities:
                     if watermove == abilities["name"]["english"]:
@@ -111,9 +108,9 @@ def boss_fight(player):
         elif isinstance(player, Fire):
             while boss.health > 0:
                 attackordefend = input("Do you want to defend or attack")
-                if attackordefend == "DEFEND".upper ():
+                if attackordefend.upper() == "DEFEND":
                     print("You defended against the enemy")
-                elif attackordefend == "ATTACK".upper():
+                elif attackordefend.upper() == "ATTACK":
                     firemove = input("Choose a fire move (Fire Fist, Fire Ball): ")
                     for abilities in fire_abilities:
                         if firemove == abilities["name"]["english"]:
@@ -149,9 +146,7 @@ while True:
             break
 
 
-def __repr__(self): 
-    return "max_health:% s and the health:% s" % (self.max_health, self.health) 
-    
+
     
 
 
