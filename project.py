@@ -1,23 +1,52 @@
 import json
 import random
 
-from classes import Boss, Enemy, Fire, User, Water
-
 with open("water_abilities.json", encoding="utf8") as water_ability_file:
     water_abilities = json.load(water_ability_file)
 
 with open("fire_abilities.json", encoding="utf8") as fire_ability_file:
     fire_abilities = json.load(fire_ability_file)
 
-normal_enemy_health = 100
-normal_enemy_max_health = 100
+
 damage_dealt = []
 
 
 
 total_damage_dealt = sum(damage_dealt)
 
+class User:
+    def __init__(self, id, name, health, max_health):
+        self.id = id
+        self.name = name
+        self.health = health
+        self.max_health = max_health
 
+class Fire(User):
+    def __init__(self, id, name, moves, health, max_health):
+        super().__init__(id, name, health, max_health)
+        self.moves = moves
+
+class Water(User):
+    def __init__(self, id, name, moves, health, max_health):
+        super().__init__(id, name, health, max_health)
+        self.moves = moves
+
+class Enemy: 
+    def __init__(self, id, name, health, max_health, damage):
+        self.health = health
+        self.id = id
+        self.name = name
+        self.max_health = max_health
+        self.damage = damage
+
+
+class Boss:
+    def __init__(self, id, name, health, max_health, damage):
+        self.health = health
+        self.id = id
+        self.name = name
+        self.max_health = max_health
+        self.damage = damage
 
 def deal_damage(player, enemy, move):
     damage = move["base"]["Attack"]
@@ -28,6 +57,7 @@ def deal_damage(player, enemy, move):
         damage_dealt.append(damage)
         return True
     return False
+
 def take_damage(player, enemy, move):
     damage = enemy.damage
     player.health -= damage
@@ -39,7 +69,8 @@ def take_damage(player, enemy, move):
 
 
 def normal_enemy_fight(player):
-    enemy = Enemy(0, "Normal Enemy", normal_enemy_health, normal_enemy_max_health, random.randint(10, 100))
+    randomenemy = random.randint(100, 200)
+    enemy = Enemy(0, "Normal Enemy",randomenemy ,randomenemy, random.randint(1, 100))
     print(f"You have encountered a normal enemy with {enemy.health} health")
     while enemy.health > 0:
         if isinstance(player, Water):
@@ -85,7 +116,7 @@ def normal_enemy_fight(player):
                     break
 
 def boss_fight(player):
-    random_boss = random.randint(500, 1000)
+    random_boss = random.randint(500, 1500)
     boss = Boss(1, "Boss", random_boss, random_boss, random.randint(50, 200))
     print(f"You have encountered a boss with {boss.health} health")
     while boss.health > 0:

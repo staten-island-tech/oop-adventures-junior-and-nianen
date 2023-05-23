@@ -20,7 +20,7 @@
         "Slowness"
     ],
     "base": {
-    "Attack":60
+    "Attack": 60
     }
 }, 
 {   "id": 3,
@@ -45,7 +45,7 @@
         "Slowness"
     ],
     "base": {
-    "Attack":50
+    "Attack": 50
     }
 },
 {
@@ -57,7 +57,7 @@
         "One Hit"
     ],
     "base": {
-    "Attack":200
+    "Attack": 200
     }
 },
 {
@@ -70,7 +70,7 @@
         "Freezing"
     ],
     "base": {
-    "Attack":70
+    "Attack": 70
     }
 },
 {
@@ -83,7 +83,7 @@
         "Freezing"
     ],
     "base": {
-    "Attack":45
+    "Attack": 45
     }
 }
 ]
