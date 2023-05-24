@@ -9,7 +9,8 @@ with open("fire_abilities.json", encoding="utf8") as fire_ability_file:
 
 
 damage_dealt = []
-
+enemies_defeated = 0
+bosses_defeated = 0
 
 
 total_damage_dealt = sum(damage_dealt)
@@ -54,7 +55,6 @@ def deal_damage(player, enemy, move):
     print(f"{enemy.name} took {damage} damage")
     if enemy.health <= 0:
         print(f"{enemy.name} has been defeated")
-        damage_dealt.append(damage)
         return True
     return False
 
@@ -70,7 +70,7 @@ def take_damage(player, enemy, move):
 
 def normal_enemy_fight(player):
     randomenemy = random.randint(100, 200)
-    enemy = Enemy(0, "Normal Enemy",randomenemy ,randomenemy, random.randint(1, 100))
+    enemy = Enemy(0, "Normal Enemy",randomenemy ,randomenemy, random.randint(50,100))
     print(f"You have encountered a normal enemy with {enemy.health} health")
     while enemy.health > 0:
         if isinstance(player, Water):
@@ -84,18 +84,13 @@ def normal_enemy_fight(player):
                         defeated = deal_damage(player, enemy, abilities)
                         if defeated:
                             print("You have defeated the normal enemy")
+                            enemies_defeated + 1
                         lost = take_damage(player, enemy, abilities)
                         if lost:
                             print("You lost")
-                          
+                            print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
                         return True
                     break
-
-           
-                
-            
-                        
-                        
         elif isinstance(player, Fire):
             attackordefend = input("Do you want to defend or attack")
             if attackordefend.upper() == "DEFEND":
@@ -107,17 +102,16 @@ def normal_enemy_fight(player):
                         defeated = deal_damage(player, enemy, abilities)
                         if defeated:
                             print("You have defeated the normal enemy")
+                            enemies_defeated + 1
                         lost = take_damage(player, enemy, abilities)
                         if lost:
                             print("You lost")
-                            
-    
+                            print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
                         return True
                     break
-
 def boss_fight(player):
     random_boss = random.randint(500, 1500)
-    boss = Boss(1, "Boss", random_boss, random_boss, random.randint(50, 200))
+    boss = Boss(1, "Boss", random_boss, random_boss, random.randint(50,200))
     print(f"You have encountered a boss with {boss.health} health")
     while boss.health > 0:
         if isinstance(player, Water):
@@ -131,9 +125,11 @@ def boss_fight(player):
                         defeated = deal_damage(player, boss, abilities)
                         if defeated:
                             print("You have defeated the boss")
+                            bosses_defeated + 1
                         lost = take_damage(player, boss, abilities)
                         if lost:
                             print("You lost")
+                            print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
                         return True
                     break
         elif isinstance(player, Fire):
@@ -148,9 +144,11 @@ def boss_fight(player):
                             defeated = deal_damage(player, boss, abilities)
                             if defeated:
                                 print("You have defeated the boss")
+                                bosses_defeated + 1
                             lost = take_damage(player, boss, abilities)
                             if lost:
                                 print("You lost")
+                                print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
                             return True
                         break
 
