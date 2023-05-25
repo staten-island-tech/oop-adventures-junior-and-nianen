@@ -49,10 +49,15 @@ class Boss:
         self.max_health = max_health
         self.damage = damage
 
+attackchance = random.randint(0,100)
+
 def deal_damage(player, enemy, move):
-    damage = move["base"]["Attack"]
-    enemy.health -= damage
-    print(f"{enemy.name} took {damage} damage")
+    if attackchance > 30:
+        damage = move["base"]["Attack"]
+        enemy.health -= damage
+        print(f"{enemy.name} took {damage} damage")
+    else:
+        print("Enemy missed")
     if enemy.health <= 0:
         print(f"{enemy.name} has been defeated")
         return True
@@ -68,9 +73,10 @@ def take_damage(player, enemy, move):
     return False
 
 
+    
 def normal_enemy_fight(player):
     randomenemy = random.randint(100, 200)
-    enemy = Enemy(0, "Normal Enemy",randomenemy ,randomenemy, random.randint(50,100))
+    enemy = Enemy(0, "Normal Enemy",randomenemy ,randomenemy, random.randint(10,100))
     print(f"You have encountered a normal enemy with {enemy.health} health")
     while enemy.health > 0:
         if isinstance(player, Water):
@@ -85,12 +91,12 @@ def normal_enemy_fight(player):
                         if defeated:
                             print("You have defeated the normal enemy")
                             enemies_defeated + 1
+                            return True
                         lost = take_damage(player, enemy, abilities)
                         if lost:
                             print("You lost")
                             print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
-                        return True
-                    break
+                        
         elif isinstance(player, Fire):
             attackordefend = input("Do you want to defend or attack")
             if attackordefend.upper() == "DEFEND":
@@ -103,15 +109,15 @@ def normal_enemy_fight(player):
                         if defeated:
                             print("You have defeated the normal enemy")
                             enemies_defeated + 1
+                            return True
                         lost = take_damage(player, enemy, abilities)
                         if lost:
                             print("You lost")
                             print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
-                        return True
-                    break
+                        
 def boss_fight(player):
-    random_boss = random.randint(500, 1500)
-    boss = Boss(1, "Boss", random_boss, random_boss, random.randint(50,200))
+    random_boss = random.randint(1000, 3000)
+    boss = Boss(1, "Boss", random_boss, random_boss, random.randint(50,250))
     print(f"You have encountered a boss with {boss.health} health")
     while boss.health > 0:
         if isinstance(player, Water):
@@ -126,12 +132,12 @@ def boss_fight(player):
                         if defeated:
                             print("You have defeated the boss")
                             bosses_defeated + 1
+                            return True
                         lost = take_damage(player, boss, abilities)
                         if lost:
                             print("You lost")
                             print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
-                        return True
-                    break
+                        
         elif isinstance(player, Fire):
             while boss.health > 0:
                 attackordefend = input("Do you want to defend or attack")
@@ -145,12 +151,12 @@ def boss_fight(player):
                             if defeated:
                                 print("You have defeated the boss")
                                 bosses_defeated + 1
+                                return True
                             lost = take_damage(player, boss, abilities)
                             if lost:
                                 print("You lost")
                                 print("Name:" + name + "Enemies defeated:" + enemies_defeated + "Bosses defeated:" + boss_defeated)
-                            return True
-                        break
+                            
 
 name = input("What is your name?")
 
@@ -160,6 +166,7 @@ if ability.upper() == "WATER":
     player = Water(0, name, [], 500, 500)
 elif ability.upper() == "FIRE":
     player = Fire(0, name, [], 500, 500)
+
 
 round_count = 1
 while True:
@@ -173,7 +180,6 @@ while True:
             round_count += 1
         else:
             break
-
 
 
     
