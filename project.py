@@ -62,6 +62,7 @@ class Boss:
 attackchance = random.randint(0, 100)
 
 def deal_damage(player, enemy, move):
+     
     hit_chance = random.random()
     if hit_chance <= 0.3:
         print("You missed")
@@ -76,10 +77,10 @@ def deal_damage(player, enemy, move):
         player.energy = 0
 
     print(f"{player.name} used {move['name']['english']} Current energy: {player.energy}")
-
     if enemy.health <= 0:
         print(f"{enemy.name} has been defeated")
         return True
+   
 
     return False
 
@@ -126,7 +127,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                             enemies_defeated += 1
                             return True
                         lost = take_damage(player, enemy, abilities)
-                        if lost:
+                        if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}, Bosses defeated: {bosses_defeated}")
                         return True
                     break
@@ -153,7 +154,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                             enemies_defeated += 1
                             return True
                         lost = take_damage(player, enemy, abilities)
-                        if lost:
+                        if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}, Bosses defeated: {bosses_defeated}")
                         return True
                     break
