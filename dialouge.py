@@ -45,15 +45,15 @@ else:
 print('When travelling to the village, you need some sleep')
 time.sleep(x)
 descion_3 = input(print('Which village hut do you want(1, 2, 3, 4, or 5)'))
-if descion_3 == 1:
+if descion_3 == '1':
     time.sleep(x)
     print('A villager asks you why you entered their tent')
     time.sleep(x)
     print('The villager asks you to leave or die')
     descion3_1 = input(print('What do you choose(leave or die'))
     if descion3_1 == 'leave':
-        descion_3 = input(print('Which village hut do you want(2, 3, 4, or 5)'))
-        if descion_3 == 2:
+        descion_3_2 = input(print('Which village hut do you want(2, 3, 4, or 5)'))
+        if descion_3_2 == '2':
             time.sleep(x)
             print('You entered an old abandoned tent')
             time.sleep(x)
@@ -62,8 +62,8 @@ if descion_3 == 1:
             print('you descided to drink it')
             time.sleep(x)
             print('You got teleported back to the path you were in')
-            descion_3 = input(print('Which village hut do you want(3, 4, or 5)'))
-            if descion_3 == 3:
+            descion_3_3 = input(print('Which village hut do you want(3, 4, or 5)'))
+            if descion_3_3 == '3':
                 time.sleep(x)
                 print("You entered an hut made for the village chief")
                 time.sleep(x)
@@ -75,7 +75,13 @@ if descion_3 == 1:
                     print('The Cheif says you look usefu; to the village')
                     time.sleep(x)
                     print('He lets you stay in the village')
-        if descion_3 == 3:
+            if descion_3_3 == '4':
+                time.sleep(x)
+                print('You go out to the village and sleep')
+            if descion_3_3 == '5':
+                time.sleep(x)
+            print('You found a hut and descided to sleep in it since it looks so comfy')
+        if descion_3_2 == '3':
             time.sleep(x)
             print("You entered an hut made for the village chief")
             time.sleep(x)
@@ -87,7 +93,29 @@ if descion_3 == 1:
                 print('The Cheif says you look usefu; to the village')
                 time.sleep(x)
                 print('He lets you stay in the village')
-if descion_3 == 2:
+        if descion_3_2 == '4':
+            time.sleep(x)
+            print('You go out to the village and sleep')
+        if descion_3_2 == '5':
+            time.sleep(x)
+            print('You found a hut and descided to sleep in it since it looks so comfy')
+    else: 
+        time.sleep(x)
+        print('He was so nice that he let you sleep with him')
+
+if descion3_1 == '3': 
+    time.sleep(x)
+    print("You entered an hut made for the village chief")
+    time.sleep(x)
+    print("He asks you what a foreigner like you is in the village and in his hunt")
+    time.sleep(x)
+    descion3_2 = input(print('Show him ability of yours or say you are here to kill the boss'))
+    if descion3_2 != 'men':
+        time.sleep(x)
+        print('The Cheif says you look usefu; to the village')
+        time.sleep(x)
+        print('He lets you stay in the village')
+if descion_3 == '2':
     time.sleep(x)
     print('You entered an old abonded tent')
     time.sleep(x)
@@ -98,7 +126,27 @@ if descion_3 == 2:
     print('You descided to drink it')
     time.sleep(x)
     print('You got teleported back to the path you were in')
-    descion_3 = input(print('Which village hut do you want(1,2,4,or 5)'))
+    descion_3_6 = input(print('Which village hut do you want(1,3,4,or 5)'))
+        if descion_3_6 == 1:
+if descion_3 == '3':
+    time.sleep(x)
+    print("You entered an hut made for the village chief")
+    time.sleep(x)
+    print("He asks you what a foreigner like you is in the village and in his hunt")
+    time.sleep(x)
+    descion3_2 = input(print('Show him ability of yours or say you are here to kill the boss'))
+    if descion3_2 != 'men':
+        time.sleep(x)
+        print('The Cheif says you look usefu; to the village')
+        time.sleep(x)
+        print('He lets you stay in the village')
+if descion_3 == '4':
+    time.sleep(x)
+    print('You go out to the village and sleep')
+if descion_3 == '5':
+    time.sleep(x)
+    print('You found a hut and descided to sleep in it since it looks so comfy')
+
 
 
     
