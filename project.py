@@ -68,7 +68,8 @@ def deal_damage(player, enemy, move):
     if player.energy < 0:
         player.energy = 0
 
-    print(f"{player.name} used {move['name']['english']} Current energy: {player.energy}")
+    print(f"{player.name} used {move['name']['english']}")
+    print(f"Current energy: {player.energy}")
     if enemy.health <= 0:
         print(f"{enemy.name} has been defeated")
 
