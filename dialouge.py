@@ -127,7 +127,35 @@ if descion_3 == '2':
     time.sleep(x)
     print('You got teleported back to the path you were in')
     descion_3_6 = input(print('Which village hut do you want(1,3,4,or 5)'))
-        if descion_3_6 == 1:
+    if descion_3_6 == '1':
+        time.sleep(x)
+        print("A villager asks you why you entered their tent")
+        time.sleep(x)
+        print("He asks you what a foreigner like you is in the village and in his hunt")
+        time.sleep(x)
+        print('He makes you leave')
+        time.sleep(x)
+        descion_3_7 = input(print('Which village hut do you want(3, 4, or 5'))
+        if descion_3_7 == '3':
+            time.sleep(x)
+            print("You entered an hut made for the village chief")
+            time.sleep(x)
+            print("He asks you what a foreigner like you is in the village and in his hunt")
+            time.sleep(x)
+            descion3_9 = input(print('Show him ability of yours or say you are here to kill the boss'))
+            if descion3_2 != 'men':
+                time.sleep(x)
+                print('The Cheif says you look usefu; to the village')
+                time.sleep(x)
+                print('He lets you stay in the village')
+        if descion_3_7 == '4':
+            time.sleep(x)
+            print('You go out to the village and sleep')
+        if descion_3_7 == '5':
+            time.sleep(x)
+            print('You found a hut and descided to sleep in it since it looks so comfy')
+
+
 if descion_3 == '3':
     time.sleep(x)
     print("You entered an hut made for the village chief")
@@ -147,6 +175,51 @@ if descion_3 == '5':
     time.sleep(x)
     print('You found a hut and descided to sleep in it since it looks so comfy')
 
-
-
-    
+time.sleep(x)
+print('When you wake up, a cute and beautiful woman looks to you and says what you are doing')
+time.sleep(x)
+descion8 = input(print('What do you say to her when she wakes up(1:(I did not know you were there/ (2: did I accedintatly sleep with you))'))
+if descion8 != 'men1':
+    time.sleep(x)
+    print('She asks you what your name is')
+    descion9 = input(print('1: Say your name 2: Be silent'))
+    if descion9 == '1':
+        time.sleep(x)
+        print(f'you say your name is []') #change it in final code
+        time.sleep(x)
+        print('She tells you her name which is Danielle')
+    if descion9 == '2':
+        time.sleep(x)
+        print('You told her you do not feel comfortable saying your name')
+        time.sleep(x)
+        print(f'She strangles you until your name[]') #change it in final code 
+        time.sleep(x)
+        print('She tells you her name which is Danielle')
+time.sleep(x)
+print('You tell her your adeventure plan to fight the biggest enemy in the world')
+time.sleep(x)
+print(f'You also tell her you have [ability choice') #change it in final code
+time.sleep(x)
+print('She says to you that she will stay in the village until you return')
+time.sleep(x)
+print('New arc begins')
+time.sleep(x)
+print('You travel to a forest to find monsters in the forest')
+time.sleep(x)
+print('You have to fight the countless amount of enemies') # change into the final coide
+#function for player dying
+time.sleep(x)
+print('You have survived enemies but barely')
+time.sleep(x)
+print('You follow a mysterous path out of nowhere but you need to leave your current path to find it')
+time.sleep(x)
+descion10 = input(print('1: Follow the trail 2:Stay on your current trail'))
+if descion10 == '1':
+    time.sleep(x)
+    print('You follow the mysterous path to find yoursel fallen down to a mysterous cave')
+    time.sleep(x)
+if descion10 == '2':
+    time.sleep(x)
+    print('You follow the trail which took a really long time')
+    time.sleep(10)
+print('you encounter a boss and descided to fight it') #boss fight function
