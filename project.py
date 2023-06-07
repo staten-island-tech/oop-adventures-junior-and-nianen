@@ -74,11 +74,10 @@ def deal_damage(player, enemy, move):
         print(f"{enemy.name} has been defeated")
 
 
+
 def take_damage(player, enemy, move):
     damage = enemy.damage
-    if not move.get("damage_printed", False):
-        print(f"{player.name} took {damage} damage")
-        move["damage_printed"] = True
+    print(f"{player.name} took {damage} damage")
     player.health -= damage
     if player.health <= 0:
         print(f"{player.name} has been defeated")
@@ -89,7 +88,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
     randomenemy = random.randint(100, 200)
     enemy = Enemy(0, "Normal Enemy", randomenemy, randomenemy, random.randint(10, 100))
     print(f"You have encountered a normal enemy with {enemy.health} health")
-    while enemy.health > 0:
+    while player.health > 0 and enemy.health > 0:
         if isinstance(player, Water):
             attackordefend = input("Do you want to defend or attack: ")
             if attackordefend.upper() == "DEFEND":
@@ -107,17 +106,19 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                 watermove = input("Choose a water move (Ice Breath, Tsunami, Icecle, Icecle Snipe, Water Slash, Water Blaze, Hail Storm): ")
                 for move in abilities:
                     if watermove == move["name"]["english"]:
-                        defeated = deal_damage(player, enemy, move)
-                        if defeated:
+                        deal_damage(player, enemy, move)
+                        print(f"Enemy's Current Health:{enemy.health}")
+                        if enemy.health <= 0:
                             enemies_defeated += 1
+                            return True
                         take_damage(player, enemy, move)
-                        lost = take_damage(player, enemy, move)
-                        if lost:
+                        if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if enemy.health <= 0:
                             break
-                break
+                
             
+
         elif isinstance(player, Fire):
             attackordefend = input("Do you want to defend or attack: ")
             if attackordefend.upper() == "DEFEND":
@@ -135,16 +136,16 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                 firemove = input("Choose a fire move (Fire Fist, Lava Cannon, Lava Rise, Magma Shot, Fire Blaze, Fire Phoneix, Fire Breath, Fire Blast): ")
                 for move in abilities:
                     if firemove == move["name"]["english"]:
-                        defeated = deal_damage(player, enemy, move)
-                        if defeated:
+                        deal_damage(player, enemy, move)
+                        if enemy.health <= 0:
                             enemies_defeated += 1
-                        lost = take_damage(player, enemy, move)
-                        if lost:
+                            return True
+                        take_damage(player, enemy, move)
+                        if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if enemy.health <= 0:
                             break
                 break
-    return True
 
 
 def boss_fight(player, enemies_defeated, abilities):
@@ -169,11 +170,12 @@ def boss_fight(player, enemies_defeated, abilities):
                 watermove = input("Choose a water move (Ice Breath, Tsunami, Icecle, Icecle Snipe, Water Slash, Water Blaze, Hail Storm): ")
                 for ability in abilities:
                     if watermove == ability["name"]["english"]:
-                        defeated = deal_damage(player, boss, ability)
-                        if defeated:
-                            print("You defeated the boss and won")
-                        lost = take_damage(player, boss, ability)
-                        if lost:
+                        deal_damage(player, boss, abilities)
+                        if boss.health <= 0:
+                            enemies_defeated += 1
+                            return True
+                        take_damage(player, boss, abilities)
+                        if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if boss.health <= 0:
                             break
@@ -196,11 +198,12 @@ def boss_fight(player, enemies_defeated, abilities):
                 firemove = input("Choose a fire move (Fire Fist, Fire Ball, Lava cannon, Lava Rise, Magma Shot, Fire Blaze, Fire Phoneix, Fire Breath): ")
                 for ability in abilities:
                     if firemove == ability["name"]["english"]:
-                        defeated = deal_damage(player, boss, ability)
-                        if defeated:
-                            print("You defeated the boss and won")
-                        lost = take_damage(player, boss, ability)
-                        if lost:
+                        deal_damage(player, boss, abilities)
+                        if boss.health <= 0:
+                            enemies_defeated += 1
+                            return True
+                        take_damage(player, boss, abilities)
+                        if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if boss.health <= 0:
                             break
@@ -222,6 +225,11 @@ def main():
     elif player_type.upper() == "FIRE":
         player = Fire(1, player_name, fire_abilities, 250, 250, 100, 100)
         abilities = fire_abilities
+    else:
+        print("Invalied Choice, Setting your ability to water")
+        player = Water(1, player_name, water_abilities, 250, 250, 100, 100)
+        abilities = water_abilities
+    
     round_count = 1
     while True:
         if round_count % 5 == 0:
@@ -229,8 +237,8 @@ def main():
             if boss_defeated:
                 break
 
-        enemy_defeated = normal_enemy_fight(player, enemies_defeated, abilities)
-        if enemy_defeated:
+        enemydefeated = normal_enemy_fight(player, enemies_defeated, abilities)
+        if enemydefeated:
             round_count += 1
         else:
             break
