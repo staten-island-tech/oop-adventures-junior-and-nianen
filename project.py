@@ -146,7 +146,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if enemy.health <= 0:
                             break
-                break
+                
 
 
 def boss_fight(player, enemies_defeated, moves):
