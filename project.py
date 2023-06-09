@@ -1,5 +1,6 @@
 import json
 import random
+from classes import Fire, Water, Enemy, Boss
 
 with open("water_abilities.json", encoding="utf8") as water_ability_file:
     water_abilities = json.load(water_ability_file)
@@ -9,46 +10,6 @@ with open("fire_abilities.json", encoding="utf8") as fire_ability_file:
 
 
 enemies_defeated = 0
-
-
-class User:
-    def __init__(self, id, name, health, max_health, energy, max_energy):
-        self.id = id
-        self.name = name
-        self.health = health
-        self.max_health = max_health
-        self.energy = energy
-        self.max_energy = max_energy
-
-
-class Fire(User):
-    def __init__(self, id, name, moves, health, max_health, energy, max_energy):
-        super().__init__(id, name, health, max_health, energy, max_energy)
-        self.moves = moves
-
-
-class Water(User):
-    def __init__(self, id, name, moves, health, max_health, energy, max_energy):
-        super().__init__(id, name, health, max_health, energy, max_energy)
-        self.moves = moves
-
-
-class Enemy:
-    def __init__(self, id, name, health, max_health, damage):
-        self.health = health
-        self.id = id
-        self.name = name
-        self.max_health = max_health
-        self.damage = damage
-
-
-class Boss:
-    def __init__(self, id, name, health, max_health, damage):
-        self.health = health
-        self.id = id
-        self.name = name
-        self.max_health = max_health
-        self.damage = damage
 
 
 attackchance = random.randint(0, 100)
@@ -107,7 +68,8 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                 for move in abilities:
                     if watermove == move["name"]["english"]:
                         deal_damage(player, enemy, move)
-                        print(f"Enemy's Current Health: {enemy.health}")
+                        if enemy.health > 0:
+                            print(f"Enemy's Current Health: {enemy.health}")
                         if enemy.health <= 0:
                             enemies_defeated += 1
                             return True
@@ -137,7 +99,8 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                 for move in abilities:
                     if firemove == move["name"]["english"]:
                         deal_damage(player, enemy, move)
-                        print(f"Enemy's Current Health: {enemy.health}")
+                        if enemy.health > 0:
+                            print(f"Enemy's Current Health: {enemy.health}")
                         if enemy.health <= 0:
                             enemies_defeated += 1
                             return True
@@ -172,7 +135,8 @@ def boss_fight(player, enemies_defeated, moves):
                 for move in moves:
                     if watermove == move["name"]["english"]:
                         deal_damage(player, boss, move)
-                        print(f"Enemy's Current Health: {boss.health}")
+                        if boss.health > 0:
+                            print(f"Enemy's Current Health: {boss.health}")
                         if boss.health <= 0:
                             enemies_defeated += 1
                             return True
@@ -199,7 +163,8 @@ def boss_fight(player, enemies_defeated, moves):
                 for move in moves:
                     if firemove == move["name"]["english"]:
                         deal_damage(player, boss, move)
-                        print(f"Enemy's Current Health: {boss.health}")
+                        if boss.health > 0:
+                            print(f"Enemy's Current Health: {boss.health}")
                         if boss.health <= 0:
                             enemies_defeated += 1
                             return True
