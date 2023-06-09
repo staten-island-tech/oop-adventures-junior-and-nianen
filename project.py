@@ -36,7 +36,7 @@ def deal_damage(player, enemy, move):
 
 
 
-def take_damage(player, enemy, move):
+def take_damage(player, enemy):
     damage = enemy.damage
     print(f"{player.name} took {damage} damage")
     player.health -= damage
@@ -59,7 +59,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                     add_energy(player)
                 else:
                     print("You unsuccessfully defended against the enemy")
-                    take_damage(player, enemy, abilities)
+                    take_damage(player, enemy)
             elif attackordefend.upper() == "ATTACK":
                 if player.energy <= 0:
                     print("You don't have enough energy to use a move")
@@ -73,7 +73,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                         if enemy.health <= 0:
                             enemies_defeated += 1
                             return True
-                        take_damage(player, enemy, move)
+                        take_damage(player, enemy)
                         if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if enemy.health <= 0:
@@ -90,7 +90,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                     add_energy(player)
                 else:
                     print("You unsuccessfully defended against the enemy")
-                    take_damage(player, enemy, abilities)
+                    take_damage(player, enemy)
             elif attackordefend.upper() == "ATTACK":
                 if player.energy <= 0:
                     print("You don't have enough energy to use a move")
@@ -104,7 +104,7 @@ def normal_enemy_fight(player, enemies_defeated, abilities):
                         if enemy.health <= 0:
                             enemies_defeated += 1
                             return True
-                        take_damage(player, enemy, move)
+                        take_damage(player, enemy)
                         if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if enemy.health <= 0:
@@ -126,7 +126,7 @@ def boss_fight(player, enemies_defeated, moves):
                     add_energy(player)
                 else:
                     print("You unsuccessfully defended against the boss")
-                    take_damage(player, boss, moves)
+                    take_damage(player, boss)
             elif attackordefend.upper() == "ATTACK":
                 if player.energy <= 0:
                     print("You don't have enough energy to use a move")
@@ -140,7 +140,7 @@ def boss_fight(player, enemies_defeated, moves):
                         if boss.health <= 0:
                             enemies_defeated += 1
                             return True
-                        take_damage(player, boss, move)
+                        take_damage(player, boss)
                         if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if boss.health <= 0:
@@ -154,7 +154,7 @@ def boss_fight(player, enemies_defeated, moves):
                     add_energy(player)
                 else:
                     print("You unsuccessfully defended against the boss")
-                    take_damage(player, boss, moves)
+                    take_damage(player, boss)
             elif attackordefend.upper() == "ATTACK":
                 if player.energy <= 0:
                     print("You don't have enough energy to use a move")
@@ -168,7 +168,7 @@ def boss_fight(player, enemies_defeated, moves):
                         if boss.health <= 0:
                             enemies_defeated += 1
                             return True
-                        take_damage(player, boss, move)
+                        take_damage(player, boss)
                         if player.health <= 0:
                             print(f"Name: {player.name}, Enemies defeated: {enemies_defeated}")
                         if boss.health <= 0:
