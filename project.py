@@ -200,7 +200,7 @@ def main():
     print('Theres a right path and a left path')
     time.sleep(x)
     descion_1 = input(print('Which path do you take'))
-    if descion_1 == 'RIGHT':
+    if descion_1.upper() == 'RIGHT':
         print('You travel through another forest filled with stronger enemies')
         time.sleep(x)
         print("You enter a cave where a powerful monster lies")
@@ -275,21 +275,21 @@ def main():
         if descion_3_2 == '5':
             time.sleep(x)
             print('You found a hut and descided to sleep in it since it looks so comfy')
-    else: 
-        time.sleep(x)
-        print('He was so nice that he let you sleep with him')
+        else: 
+            time.sleep(x)
+            print('He was so nice that he let you sleep with him')
         if descion3_1 == '3': 
             time.sleep(x)
             print("You entered an hut made for the village chief")
             time.sleep(x)
             print("He asks you what a foreigner like you is in the village and in his hunt")
             time.sleep(x)
-        descion3_2 = input(print('Show him ability of yours or say you are here to kill the boss'))
-    if descion3_2 != 'men':
-        time.sleep(x)
-        print('The Cheif says you look usefu; to the village')
-        time.sleep(x)
-        print('He lets you stay in the village')
+            descion3_2 = input(print('Show him ability of yours or say you are here to kill the boss'))
+            if descion3_2 != 'men':
+                time.sleep(x)
+                print('The Cheif says you look usefu; to the village')
+                time.sleep(x)
+                print('He lets you stay in the village')
     if descion_3 == '2':
         time.sleep(x)
         print('You entered an old abonded tent')
@@ -357,20 +357,20 @@ def main():
         descion9 = input(print('1: Say your name 2: Be silent'))
         if descion9 == '1':
             time.sleep(x)
-            print(f'you say your name is []') #change it in final code
+            print(f'you say your name is' [player_name]) #change it in final code
             time.sleep(x)
             print('She tells you her name which is Danielle')
         if descion9 == '2':
             time.sleep(x)
             print('You told her you do not feel comfortable saying your name')
             time.sleep(x)
-            print(f'She strangles you until your name[]') #change it in final code 
+            print(f'She strangles you until your name'[player_name]) #change it in final code 
             time.sleep(x)
             print('She tells you her name which is Danielle')
     time.sleep(x)
     print('You tell her your adeventure plan to fight the biggest enemy in the world')
     time.sleep(x)
-    print(f'You also tell her you have [ability choice') #change it in final code
+    print(f'You also tell her you have' [player_type]) #change it in final code
     time.sleep(x)
     print('She says to you that she will stay in the village until you return')
     time.sleep(x)
